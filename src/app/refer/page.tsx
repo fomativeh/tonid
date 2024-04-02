@@ -71,7 +71,7 @@ export default function Refer() {
           <Image src={"/assets/images/logo.png"} alt="TON ID Logo" fill />
         </figure>
 
-        <Link href={"https://t.me/ton_identity"}>
+        <Link href={"https://t.me/ton_idz"}>
           <span className="bg-theme-light-blue text-black hover:opacity-[.7] font-bold rounded-[5px] p-[15px]">
             Our Telegram
           </span>
