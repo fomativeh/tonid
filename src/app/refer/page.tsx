@@ -24,41 +24,43 @@ export default function Refer() {
   const [username, setUsername] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [notFound, setNotFound] = useState<boolean>(false);
-  const [url, setUrl] = useState<string>("")
+  const [url, setUrl] = useState<string>("");
   //   const [serverError, setServerError] = useState<boolean>(false);
   // Find the index of the "=" sign
-  const index = url.indexOf("=");
-
-  // Extract the substring starting from the character after the "=" sign
-  const inviteId = url.substring(index + 1);
 
   const loadReferralData = async () => {
-    try {
-      const res = await fetchReferralData(inviteId as string);
-      setIsLoading(false);
+    if (typeof window !== "undefined") {
+      let url = window.location.href;
+      const index = url.indexOf("=");
 
-      if (res?.status == 200) {
+      // Extract the substring starting from the character after the "=" sign
+      const inviteId = url.substring(index + 1);
+      console.log(inviteId);
+
+      try {
+        const res = await fetchReferralData(inviteId as string);
         setIsLoading(false);
-        setName(res.data.name);
-        setUsername(res.data.username);
-      }
 
-      if (!res) {
-        setNotFound(true);
-      }
+        if (res?.status == 200) {
+          setIsLoading(false);
+          setName(res.data.name);
+          setUsername(res.data.username);
+        }
 
-      // if (res?.status == 500) {
-      //   setServerError(true);
-      // }
-    } catch (error) {
-      console.log(error);
+        if (!res) {
+          setNotFound(true);
+        }
+
+        // if (res?.status == 500) {
+        //   setServerError(true);
+        // }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   useEffect(() => {
-    if(typeof window !=="undefined"){
-        setUrl(window.location.href)
-      }
     loadReferralData();
   }, []);
 
