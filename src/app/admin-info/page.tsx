@@ -4,13 +4,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { fetchAdminInfo } from "@/api/fetchAdminInfo";
 import { copyToClipboard } from "../helpers/copyToClipboard";
-import { Metadata } from 'next'
- 
-// either Static metadata
-export const metadata: Metadata = {
-  title: 'Admin |Ton id',
-  description:"View all user information and analytics"
-}
 
 const Loader = () => {
   return (
@@ -142,7 +135,7 @@ const Admin = () => {
       )}
 
       {/* Show this for server errors */}
-      {err.length != 0 && (
+      {err?.length != 0 && (
         <span className="text-white bg-black p-[20px] rounded-[10px] max-w-[300px]">
           {err}
         </span>
@@ -202,7 +195,7 @@ const Admin = () => {
             {/* Users list */}
             <section className="mt-[30px] w-full flex flex-col justify-start items-center">
               {/* Only show this when searching */}
-              {query?.trim().length > 0 && (
+              {query?.trim()?.length > 0 && (
                 <>
                   {filteredUsers?.map((each: any, i: number) => {
                     return <UsersRow userInfo={each} key={i} />;
@@ -211,7 +204,7 @@ const Admin = () => {
               )}
 
               {/*Show this on default */}
-              {query?.trim().length == 0 && (
+              {query?.trim()?.length == 0 && (
                 <>
                   {data?.allUsers?.map((each: any, i: number) => {
                     return <UsersRow userInfo={each} key={i} />;
