@@ -80,7 +80,7 @@ const UsersRow = ({ userInfo }: { userInfo?: any }) => {
     </>
   );
 };
-const page = () => {
+const Admin = () => {
   const [data, setData] = useState<any>(null);
   const [err, setErr] = useState<string>("");
   const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
@@ -212,4 +212,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Admin;
