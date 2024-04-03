@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 // either Static metadata
 export const metadata: Metadata = {
-  title: "Admin | Ton Id",
+  title: "Admin | Ton ID",
   description: "View all user information and analytics",
 };
 
