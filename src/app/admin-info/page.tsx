@@ -66,11 +66,11 @@ const UsersRow = ({ userInfo }: { userInfo?: any }) => {
           {userInfo.referralsCount}
         </span>
         <section className="flex flex-col justify-center items-center w-[22%] rounded-[12px] bg-theme-light-blue py-[10px] break-words max-w-[22%]">
-          <span className="mb-[20px] text-left max-w-[85%] overflow-ellipsis">
+          <span className="mb-[20px] text-left max-w-[85%] font-normal overflow-ellipsis">
             {userInfo.walletAddress}
           </span>
           <button
-            className="w-[95%] h-[40px] rounded-[20px] bg-[#000000] text-white"
+            className="w-[85%] h-[40px] rounded-[20px] bg-[#000000] text-white"
             onClick={() => copyToClipboard(userInfo.walletAddress, toast)}
           >
             Copy
