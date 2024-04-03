@@ -185,6 +185,13 @@ const Admin = () => {
               </span>
             </header>
 
+            {/* Show this for no results found */}
+            {query.length > 0 && filteredUsers.length == 0 && (
+              <span className="m-[20px] font-bold text-white">
+                User not found.
+              </span>
+            )}
+
             {/* Users list */}
             <section className="mt-[30px] w-full flex flex-col justify-start items-center">
               {/* Only show this when searching */}
