@@ -96,8 +96,8 @@ const Admin = () => {
 
   useEffect(() => {
     let matchedUsers = data?.allUsers.filter((eachUser: any) => {
-      const nameMatch = eachUser.name.toLowerCase().includes(query);
-      const usernameMatch = eachUser.username.toLowerCase().includes(query);
+      const nameMatch = eachUser?.name.toLowerCase().includes(query);
+      const usernameMatch = eachUser?.username.toLowerCase().includes(query);
       return nameMatch || usernameMatch;
     });
 
@@ -151,10 +151,10 @@ const Admin = () => {
       {/* Admin info section */}
       {data && (
         <section className="mt-[100px] w-full flex justify-center items-center flex-wrap p-[30px] max-sm:p-[15px]">
-          <DataCard title={"Number of users"} value={data.numberOfUsers} />
+          <DataCard title={"Number of users"} value={data?.numberOfUsers} />
           <DataCard
-            title={"Total amount earned by all users combined"}
-            value={`${data.totalAmountEarnedByAllUsers} TIT`}
+            title={"Total amount earned by users"}
+            value={`${data?.totalAmountEarnedByAllUsers} TIT`}
           />
         </section>
       )}
@@ -193,7 +193,7 @@ const Admin = () => {
             </header>
 
             {/* Show this for no results found */}
-            {query.length > 0 && filteredUsers.length == 0 && (
+            {query?.length > 0 && filteredUsers?.length == 0 && (
               <span className="m-[20px] font-bold text-white">
                 User not found.
               </span>
@@ -202,7 +202,7 @@ const Admin = () => {
             {/* Users list */}
             <section className="mt-[30px] w-full flex flex-col justify-start items-center">
               {/* Only show this when searching */}
-              {query.trim().length > 0 && (
+              {query?.trim().length > 0 && (
                 <>
                   {filteredUsers?.map((each: any, i: number) => {
                     return <UsersRow userInfo={each} key={i} />;
@@ -211,9 +211,9 @@ const Admin = () => {
               )}
 
               {/*Show this on default */}
-              {query.trim().length == 0 && (
+              {query?.trim().length == 0 && (
                 <>
-                  {data.allUsers.map((each: any, i: number) => {
+                  {data?.allUsers?.map((each: any, i: number) => {
                     return <UsersRow userInfo={each} key={i} />;
                   })}
                 </>
