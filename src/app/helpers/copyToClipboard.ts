@@ -8,7 +8,7 @@ export const copyToClipboard = async (text: string, toast?: any) => {
   try {
     await navigator.clipboard.writeText(text);
     if (toast) {
-      toast.success("Text copied to clipboard!");
+      toast.success("Wallet address copied.");
     }
   } catch (error) {
     console.error("Failed to copy text:", error);
@@ -27,6 +27,6 @@ function fallbackCopyToClipboard(text: string, toast?: any) {
   document.execCommand('copy');
   document.body.removeChild(dummy);
   if (toast) {
-    toast.success("Text copied to clipboard (fallback method).");
+    toast.success("Wallet address copied.");
   }
 }
