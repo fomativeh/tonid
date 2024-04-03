@@ -103,8 +103,8 @@ const Admin = () => {
     try {
       const res = await fetchAdminInfo();
       setIsLoading(false);
-      if (res.success) {
-        setData(res.data);
+      if (res?.success) {
+        setData(res?.data);
       } else {
         setErr("Server is down. Contact developer.");
       }
@@ -187,7 +187,7 @@ const Admin = () => {
 
             {/* Show this for no results found */}
             {query?.length > 0 && filteredUsers?.length == 0 && (
-              <span className="m-[20px] font-bold text-white">
+              <span className="m-[20px] font-bold text-white p-[20px] rounded-[16px] bg-theme-light-blue">
                 User not found.
               </span>
             )}
