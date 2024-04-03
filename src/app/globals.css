@@ -127,3 +127,8 @@ body {
   }
 }
 
+.list{
+  >span{
+    color:#4396FF;
+  }
+}

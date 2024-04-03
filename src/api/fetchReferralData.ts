@@ -7,9 +7,7 @@ export const fetchReferralData = async (link: string) => {
             "Content-Type": "application/json"
         };
 
-        const response = await axios.post(`https://ton-id-referral-server.onrender.com/referUser/${link}`, { headers },);
-        // console.log(response)
-        // return response.data.data
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/${link}`, { headers },);
         if (response.status == 200) {
             return { status: 200, data: response.data.data }
         } else if (response.status == 404) {
