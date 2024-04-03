@@ -7,7 +7,7 @@ export const fetchReferralData = async (link: string) => {
             "Content-Type": "application/json"
         };
 
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/${link}`, { headers },);
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/referuser/${link}`, { headers },);
         if (response.status == 200) {
             return { status: 200, data: response.data.data }
         } else if (response.status == 404) {

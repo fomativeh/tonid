@@ -93,7 +93,7 @@ export default function Refer() {
                 <b>Name:</b> {name}
               </span>
               <span>
-                <b>Username:</b> @{username}
+                <b>Username:</b> {username}
               </span>
             </section>
           </section>
