@@ -4,6 +4,13 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { fetchAdminInfo } from "@/api/fetchAdminInfo";
 import { copyToClipboard } from "../helpers/copyToClipboard";
+import { Metadata } from 'next'
+ 
+// either Static metadata
+export const metadata: Metadata = {
+  title: 'Admin |Ton id',
+  description:"View all user information and analytics"
+}
 
 const Loader = () => {
   return (
